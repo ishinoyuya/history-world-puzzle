@@ -56,6 +56,7 @@
 
   // プレイ可能な年代。data/<year>.json を選択時に動的に読み込む。
   const YEAR_META = [
+    { key: "500", label: "500年" },
     { key: "600", label: "600年" },
     { key: "700", label: "700年" },
     { key: "800", label: "800年" },
