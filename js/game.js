@@ -56,6 +56,7 @@
 
   // プレイ可能な年代。data/<year>.json を選択時に動的に読み込む。
   const YEAR_META = [
+    { key: "900", label: "900年" },
     { key: "1000", label: "1000年" },
     { key: "1100", label: "1100年" },
     { key: "1200", label: "1200年" },
@@ -437,6 +438,7 @@
       const count = meta.key === null
         ? GAME_DATA.countries.length
         : GAME_DATA.countries.filter(c => c.regions.includes(meta.key)).length;
+      if (meta.key !== null && count === 0) continue;
       const btn = document.createElement("button");
       btn.className = "mode-btn" + (meta.cls ? ` ${meta.cls}` : "");
       btn.innerHTML = `${meta.label}<span class="count">${count}ピース</span>`;
