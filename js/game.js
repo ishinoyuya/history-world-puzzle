@@ -56,6 +56,7 @@
 
   // プレイ可能な年代。data/<year>.json を選択時に動的に読み込む。
   const YEAR_META = [
+    { key: "bc1", label: "紀元前1年" },
     { key: "100", label: "100年" },
     { key: "200", label: "200年" },
     { key: "300", label: "300年" },
@@ -434,7 +435,8 @@
   function startGame(regionKey) {
     currentRegion = regionKey;
     const meta = REGION_META.find(r => r.key === regionKey);
-    const yearLabel = `${currentYear}年 世界国境パズル`;
+    const yearMeta = YEAR_META.find(y => y.key === currentYear);
+    const yearLabel = `${yearMeta.label} 世界国境パズル`;
     pageTitle.textContent = regionKey === null ? yearLabel : `${yearLabel} - ${meta.label}`;
     modeOverlay.classList.add("hidden");
     initGame();
